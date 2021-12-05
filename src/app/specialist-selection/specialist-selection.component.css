@@ -1,0 +1,17 @@
+.body{
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+}
+
+.margin-left10{
+  margin-left: 10px;
+}
+
+.appoint-button {
+  background-color: #AAFF00;
+  width: 50px;
+  height: 25px;
+  margin-left: 14%;
+  margin-top: 20px;
+}

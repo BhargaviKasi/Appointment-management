@@ -1,0 +1,50 @@
+<div class="body">
+<div class="p-field p-col-12 p-md-4 margin-left10">
+  <input name="name" [(ngModel)]="data.patient_name" type="text" class="input-field-styles" matInput placeholder="Enter patient name" style="padding:5px 5px 5px 10px;"/>
+</div>
+<div class="p-field p-col-12 p-md-4 margin-left10">
+  <input name="phone_no" [(ngModel)]="data.patient_contact" type="text" class="input-field-styles" matInput placeholder="Contact Number" style="padding:5px 5px 5px 10px;"/>
+</div>
+<div class = "ui-g-3 p-float-label">
+  <div class="p-field-radiobutton">
+    <p-radioButton value="Female" 
+                     [(ngModel)]="data.gender" 
+                   inputId="female">
+    </p-radioButton>
+    <label for=" female">Female</label>
+  </div>
+  <div class="p-field-radiobutton">
+    <p-radioButton value="Male" 
+                   [(ngModel)]="data.gender" 
+                   inputId="male">
+    </p-radioButton>
+    <label for=" gfg2">Male</label>
+  </div>
+</div>
+</div>
+<div class="body">
+  <div class = "ui-g-3 p-float-label">
+    <p-autoComplete 
+      [style]="{'height': '30px', 'width':'100%'}" 
+      [(ngModel)]="data" 
+      [suggestions]="doctors" 
+      [inputStyle]="{'width':'calc(100% - 2em)'}"
+      [minLength]="1" 
+      [dropdown]="true" 
+      (completeMethod)="onFetchDoctor($event)"
+      (onSelection)="selectTreatmentType($event)"
+      [forceSelection]='true'
+      placeholder="Treatment"
+      field="name"> 
+    </p-autoComplete>
+</div>
+<div class="p-field p-col-12 p-md-4 margin-left10">
+  <input name="slot" [(ngModel)]="data.slot" type="text" class="input-field-styles" matInput placeholder="Available Slot" style="padding:5px 5px 5px 10px;"/>
+</div>
+<div class="p-field p-col-12 p-md-4 margin-left10">
+  <input name="fee" [(ngModel)]="data.fee" type="text" class="input-field-styles" matInput placeholder="Doctor Fee" style="padding:5px 5px 5px 10px;"/>
+</div>
+</div>
+<button (click)="bookAppoinment()" style="border: none; outline: none;" class="input-field-styles--button appoint-button" mat-button>
+  Login
+</button>

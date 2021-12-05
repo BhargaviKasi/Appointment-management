@@ -27,7 +27,8 @@ RUN yarn install
 # Bundle App Source
 COPY . /appointment-management
 
-RUN /usr/local/bin/ng build --prod --aot --source-map=false --build-optimizer=true
+
+# RUN ng serve --open
 
 EXPOSE 3002
 

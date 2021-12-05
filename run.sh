@@ -7,4 +7,5 @@
 #   pm2-docker start pm2-config/process_dev.json
 # fi
 
-exec "$@"
+# exec "$@"
+ng serve --open
