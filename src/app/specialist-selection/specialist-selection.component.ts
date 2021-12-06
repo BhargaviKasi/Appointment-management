@@ -23,7 +23,8 @@ export class SpecialistSelectionComponent implements OnInit {
     patient_name: '',
     patient_contact:'',
     gender:'',
-    timestamp: ''
+    timestamp: '',
+    doctor:{}
   };
 
   constructor(
@@ -47,6 +48,7 @@ export class SpecialistSelectionComponent implements OnInit {
       })
   }
   bookAppoinment(){
+    console.log("-----------------", this.data)
     if(this.checkAvailability()){
       this.dataService.addAppointment(this.data)
     }else{
@@ -66,8 +68,10 @@ export class SpecialistSelectionComponent implements OnInit {
 
   selectTreatmentType(event: any){
     let list:any=this.dataService.fetchDoctorAppoinmentsHistory()
+    console.log(this.data, event)
+    console.log("----list--------",list.slice(-1)[0].timestamp, moment(list.slice(-1)[0].timestamp, 'DD-MM-YYYY HH:mm:ss').add(20,'minute'))
     this.data['doctor_id'] = event.id
-    this.data['timestamp'] = moment(list[-1].timestamp).add(20,'minutes')
+    this.data['timestamp'] = new Date(moment(list.slice(-1)[0].timestamp, 'DD-MM-YYYY HH:mm:ss').add(20,'minutes').format('YYYY-MM-DD HH:mm:ss'))
     this.data['fee']= event.fee
     this.changeDetectorRef.markForCheck()
     

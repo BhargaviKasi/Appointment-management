@@ -4,6 +4,8 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import {CalendarModule} from 'primeng/calendar';
 
 import { ReactiveFormsModule, FormsModule  } from '@angular/forms';
 
@@ -31,7 +33,9 @@ import { SpecialistSelectionEffects } from './specialist-selection/store/special
     MatInputModule,
     MatFormFieldModule,    
     MatAutocompleteModule,
-    FormsModule, 
+    CalendarModule,
+    FormsModule,
+     RadioButtonModule ,
     ReactiveFormsModule,
     EffectsModule.forRoot([SpecialistSelectionEffects]),
     StoreModule.forRoot(reducers),

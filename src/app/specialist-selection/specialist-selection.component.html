@@ -5,7 +5,7 @@
 <div class="p-field p-col-12 p-md-4 margin-left10">
   <input name="phone_no" [(ngModel)]="data.patient_contact" type="text" class="input-field-styles" matInput placeholder="Contact Number" style="padding:5px 5px 5px 10px;"/>
 </div>
-<div class = "ui-g-3 p-float-label">
+<div class = "ui-g-3 p-float-label" style="display: flex; margin-left: 45px;">
   <div class="p-field-radiobutton">
     <p-radioButton value="Female" 
                      [(ngModel)]="data.gender" 
@@ -13,7 +13,7 @@
     </p-radioButton>
     <label for=" female">Female</label>
   </div>
-  <div class="p-field-radiobutton">
+  <div class="p-field-radiobutton" style="margin-left: 10px;">
     <p-radioButton value="Male" 
                    [(ngModel)]="data.gender" 
                    inputId="male">
@@ -26,20 +26,21 @@
   <div class = "ui-g-3 p-float-label">
     <p-autoComplete 
       [style]="{'height': '30px', 'width':'100%'}" 
-      [(ngModel)]="data" 
+      [(ngModel)]="data.doctor" 
       [suggestions]="doctors" 
       [inputStyle]="{'width':'calc(100% - 2em)'}"
       [minLength]="1" 
       [dropdown]="true" 
+      (onSelect)="selectTreatmentType($event)"
       (completeMethod)="onFetchDoctor($event)"
-      (onSelection)="selectTreatmentType($event)"
       [forceSelection]='true'
       placeholder="Treatment"
       field="name"> 
     </p-autoComplete>
 </div>
 <div class="p-field p-col-12 p-md-4 margin-left10">
-  <input name="slot" [(ngModel)]="data.slot" type="text" class="input-field-styles" matInput placeholder="Available Slot" style="padding:5px 5px 5px 10px;"/>
+  <p-calendar [(ngModel)]="data.slot" dateFormat="dd.mm.yy" pla></p-calendar>
+  <!-- <input name="slot" [(ngModel)]="data.slot" type="text" class="input-field-styles" matInput placeholder="Available Slot" style="padding:5px 5px 5px 10px;"/> -->
 </div>
 <div class="p-field p-col-12 p-md-4 margin-left10">
   <input name="fee" [(ngModel)]="data.fee" type="text" class="input-field-styles" matInput placeholder="Doctor Fee" style="padding:5px 5px 5px 10px;"/>
